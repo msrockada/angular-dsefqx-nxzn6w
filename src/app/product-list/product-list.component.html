@@ -1,0 +1,44 @@
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
+  <h3> <a [title]="product.name + ' details'" href='{{product.href}}'>{{product.name}}</a> </h3>
+  <app-product-item (click)="toggle()"></app-product-item>
+  <div *ngIf="show"
+  >
+  <p *ngIf = "product.long">
+    Name: {{product.long}}
+  </p>
+  <p *ngIf="product.description">
+    Description: {{product.description}}
+  </p>
+  <p *ngIf="product.rating">
+    Rating: {{product.rating}}
+  </p>
+  <img src = "{{product.image}}"> <img src = "{{product.image2}}"> <img src = "{{product.image3}}">
+
+
+</div>
+
+
+
+
+  
+    
+    
+    <br>
+    <br>
+    <button (click)="share()"> Share </button>
+    
+
+
+<app-product-alerts
+  [product]="product" 
+  (notify)="onNotify()">
+</app-product-alerts>
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
